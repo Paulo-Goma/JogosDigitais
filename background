@@ -1,0 +1,23 @@
+import pygame
+pygame.init()
+
+largura = 1000
+altura = 600
+
+screen = pygame.display.set_mode((1000, 600))
+
+background = pygame.image.load('3355.jpg').convert()
+background = pygame.transform.scale(background, (1000, 600))
+
+while True:
+    # desenha o background
+    screen.blit(background, (0, 0))
+    
+    # atualiza a tela
+    pygame.display.update()
+    
+    # aguarda um evento
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
