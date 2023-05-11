@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Importando as bibliotecas necessárias.
+
 import pygame
 import random
 from os import path
@@ -19,6 +20,7 @@ FPS = 60 # Frames por segundo
 
 # Imagens
 PLAYER_IMG = 'player_img'
+BACKGROUND = 'background'
 
 # Define algumas variáveis com as cores básicas
 WHITE = (255, 255, 255)
@@ -215,6 +217,7 @@ def load_assets(img_dir):
     assets[PLAYER_IMG] = pygame.image.load(path.join(img_dir, 'timmy.png')).convert_alpha()
     assets[BLOCK] = pygame.image.load(path.join(img_dir, 'chão.jpg')).convert()
     assets[PLATF] = pygame.image.load(path.join(img_dir, 'chao_preto.jpg')).convert()
+    assets[BACKGROUND] = pygame.image.load(path.join(img_dir, 'background.png')).convert() 
     return assets
 
 
@@ -225,6 +228,18 @@ def game_screen(screen):
     # Carrega assets
     assets = load_assets(img_dir)
 
+     # Carrega assets
+    assets = load_assets(img_dir)
+
+    # Carrega a imagem de fundo
+    background_img = pygame.image.load(path.join(img_dir, 'background.png')).convert()
+
+    # Define a posição inicial do fundo
+    background_x = 0
+
+    # Redimensiona a imagem de fundo para o tamanho da tela
+    background_img = pygame.transform.scale(background_img, (WIDTH, HEIGHT))
+     
     # Cria um grupo de todos os sprites.
     all_sprites = pygame.sprite.Group()
     # Cria um grupo somente com os sprites de plataforma.
@@ -260,6 +275,16 @@ def game_screen(screen):
     state = PLAYING
     while state != DONE:
 
+
+        # Move o fundo para criar o efeito de parallax
+        background_x -= 1
+
+        screen.blit(background_img, (background_x, 0))
+        screen.blit(background_img, (background_x + WIDTH, 0))
+         
+        # Verifica se o fundo ultrapassou a largura da tela, reinicia a posição
+        if background_x <= -WIDTH:
+            background_x = 0
         # Ajusta a velocidade do jogo.
         clock.tick(FPS)
 
@@ -293,7 +318,7 @@ def game_screen(screen):
         all_sprites.update()
 
         # A cada loop, redesenha o fundo e os sprites
-        screen.fill(BLACK)
+        screen.blit(assets[BACKGROUND], (0, 0))
         all_sprites.draw(screen)
 
         # Depois de desenhar tudo, inverte o display.
@@ -321,3 +346,4 @@ try:
     game_screen(screen)
 finally:
     pygame.quit()
+
