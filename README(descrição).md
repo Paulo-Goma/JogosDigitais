@@ -12,3 +12,4 @@ Características: medroso, baixa estatura, magro, fraco, pouca impulsão(pulo), 
 
 Objetivo: sobreviver à onda gigante, pulando os obstáculos que surgem no caminho.
 
+jogo.zip=jogo entregue zipado
