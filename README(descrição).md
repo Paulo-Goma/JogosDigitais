@@ -2,13 +2,13 @@
 disciplina de jogos digitais
 
 Proposta de jogo:
-Escape Earthbreak
+Escape Earthquake
 
-desenvolver um jogo onde o objetivo é salvar os demais sobreviventes de um prédio, para isso tomando as decisões que terão consequências sobre o personagem principal.
+
 
 Personagem principal:
 João (jogador principal)
 Características: medroso, baixa estatura, magro, fraco, pouca impulsão(pulo), velocidade alta, força média e solidário.
 
-O jogador tem a função principal de ajudar todas as pessoas do prédio a se locomoverem de forma segura, porém tem vários pedaços da estrutura destruída em diversas salas, em cada uma terá um problema de fiação, vazamento de água, pessoas embaixo do concreto...Cada vez que o João conseguir passar de sala ele ganhará pontos.
+Objetivo: sobreviver à onda gigante, pulando os obstáculos que surgem no caminho.
 
